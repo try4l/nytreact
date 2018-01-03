@@ -3,6 +3,7 @@ import Saved from "./Saved";
 import Search from "./Search";
 import Results from "./Results";
 import API from "../utils/api";
+import {Image} from 'react-bootstrap';
 
 class Main extends Component {
 
@@ -102,13 +103,25 @@ class Main extends Component {
   }
 
   render() {
+
+    var background = {backgroundSize : 'cover', margin: 'auto'};
+
     return (
 
       <div className="main-container">
         <div className="container">
+
           {/* Jumbotron */}
           <div className="jumbotron">
-            <h1 className="text-center"><strong>Search for Articles from The New York Times</strong></h1>
+
+
+                <Image 
+                  style={background} responsive 
+                  src="/assets/images/headline2.jpg">
+                </Image>
+
+
+            <h1 className="text-center"><strong>Search Articles from The New York Times</strong></h1>
             <h2 className="text-center">Save Articles to Read Later</h2>
           </div>
           {/* Search Form and Results Section */}
@@ -148,7 +161,7 @@ class Main extends Component {
           </footer>
         </div>
       </div>
-      
+
     );
   }
 
