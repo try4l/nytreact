@@ -7,7 +7,7 @@ var Article = require('./models/Article.js');
 
 
 const path = require("path");
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 // Serve up static assets (usually on heroku)
@@ -29,7 +29,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/nytreact');
 //mongoose.connect('mongodb://heroku_jns4phwt:61tt9c1oiotedcl5ndjhfv9pn5@ds019936.mlab.com:19936/heroku_jns4phwt');
 
 
-// Connect mongoose
+//Connect mongoose
 // const db = process.env.MONGODB_URI || "mongodb://localhost/nyt-react";
 // mongoose.connect(db, function(error) {
 //   // Log any errors connecting with mongoose
