@@ -20,7 +20,7 @@ class Main extends Component {
     this.getSavedArticles()
   }
 
-  // Method for getting saved articles (all articles) from the db
+  // Method for getting saved articles (all articles) from database
   getSavedArticles = () => {
     API.getArticle()
       .then((res) => {
@@ -28,7 +28,7 @@ class Main extends Component {
       });
   }
 
-  // A helper method for rendering one search results div for each article
+  // Helper method renders one search result div for each article
   renderArticles = () => {
     return this.state.articles.map(article => (
       <Results
@@ -43,7 +43,7 @@ class Main extends Component {
     ));
   }
 
-  // A helper method for rendering one div for each saved article
+  // Helper method renders one div for each saved article
   renderSaved = () => {
     return this.state.saved.map(save => (
       <Saved
@@ -73,7 +73,7 @@ class Main extends Component {
     this.setState({ endYear: event.target.value });
   }
 
-  // When the search form submits, perform NYT api search with user input
+  // On form submits, perform NYT api search with user input
   handleFormSubmit = (event) => {
     event.preventDefault();
     console.log("Getting NYT Articles");
@@ -87,7 +87,7 @@ class Main extends Component {
       });
   }
 
-  // When save article button is clicked, add article to db
+  // On save article button click, add article to database
   handleSaveButton = (id) => {
     const findArticleByID = this.state.articles.find((el) => el._id === id);
     console.log("findArticleByID: ", findArticleByID);
@@ -96,7 +96,7 @@ class Main extends Component {
     .then(this.getSavedArticles());
   }
 
-  // When delete article button is clicked, remove article from db
+  // On delete article button click, remove article from database
   handleDeleteButton = (id) => {
     API.deleteArticle(id)
       .then(this.getSavedArticles());
@@ -114,12 +114,10 @@ class Main extends Component {
           {/* Jumbotron */}
           <div className="jumbotron">
 
-
                 <Image 
                   style={background} responsive 
                   src="/assets/images/headline2.jpg">
                 </Image>
-
 
             <h1 className="text-center"><strong>Search Articles from The New York Times</strong></h1>
             <h2 className="text-center">Save Articles to Read Later</h2>
