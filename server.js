@@ -25,19 +25,33 @@ app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
 app.use(express.static('./public'));
 
-mongoose.connect('mongodb://localhost/nytreact');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/nytreact');
 //mongoose.connect('mongodb://heroku_jns4phwt:61tt9c1oiotedcl5ndjhfv9pn5@ds019936.mlab.com:19936/heroku_jns4phwt');
 
+
+// Connect mongoose
+// const db = process.env.MONGODB_URI || "mongodb://localhost/nyt-react";
+// mongoose.connect(db, function(error) {
+//   // Log any errors connecting with mongoose
+//   if (error) {
+//     console.error(error);
+//   }
+//   // Or log a success message
+//   else {
+//     console.log("Mongoose connection successful");
+//   }
+// });
 
 var db = mongoose.connection;
 
 db.on('error', function (err) {
-  console.log('Mongoose Error: ', err);
+ console.log('Mongoose Error: ', err);
 });
 
 db.once('open', function () {
-  console.log('Mongoose connection successful.');
+ console.log('Mongoose connection successful.');
 });
+
 
 // app.get('/', function(req, res){
 //   res.sendFile('./public/index.html');
